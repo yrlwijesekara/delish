@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delish Restaurant - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-bg"></div>
+        
+        <!-- Top Info Bar -->
+        <div class="top-bar">
+            <div class="top-info">
+                <div class="hours">Mon-Wed: 11a-9p</div>
+                <div class="separator"></div>
+                <div class="hours">Thurs-Sat: 11a-10p</div>
+                <div class="separator"></div>
+                <div class="email">reservations@delish.com</div>
+                <div class="separator"></div>
+                <div class="phone">123 456 7899</div>
+                <div class="separator"></div>
+                <div class="address">296 Ridao Avenie Mor Berlin 251584</div>
+            </div>
+            <div class="top-divider"></div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="./IMAGES/logo.png" alt="Delish Restaurant Logo" class="logo-image">
+                    <div class="logo-text">DELISH</div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">HOME</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#pages" class="nav-link">PAGES <span class="dropdown-arrow">▼</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="aboutus.html" class="dropdown-link">About Us</a></li>
+                                <li><a href="#team" class="dropdown-link">Our Team</a></li>
+                                <li><a href="#gallery" class="dropdown-link">Gallery</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#pages" class="nav-link">PAGES <span class="dropdown-arrow">▼</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#services" class="dropdown-link">Services</a></li>
+                                <li><a href="#menu" class="dropdown-link">Menu</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#shop" class="nav-link">SHOP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#blog" class="nav-link">BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Book Table Button -->
+                <div class="book-table-btn">
+                    <button class="btn-book">
+                        <span class="btn-text">BOOK A TABLE</span>
+                        <span class="btn-line"></span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">
+                    <img src="./IMAGES/logo.png" alt="Delish Restaurant Logo" class="logo-image">
+                    <div class="logo-text">DELISH</div>
+                </div>
+                <button class="mobile-menu-close" id="mobile-menu-close">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#home" class="mobile-nav-link">HOME</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#pages" class="mobile-nav-link">PAGES</a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="aboutus.html" class="mobile-dropdown-link">About Us</a></li>
+                        <li><a href="#team" class="mobile-dropdown-link">Our Team</a></li>
+                        <li><a href="#gallery" class="mobile-dropdown-link">Gallery</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#pages" class="mobile-nav-link">PAGES</a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="#services" class="mobile-dropdown-link">Services</a></li>
+                        <li><a href="#menu" class="mobile-dropdown-link">Menu</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#shop" class="mobile-nav-link">SHOP</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#blog" class="mobile-nav-link">BLOG</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#contact" class="mobile-nav-link">CONTACT</a>
+                </li>
+            </ul>
+            <div class="mobile-book-btn">
+                <button class="btn-book mobile">
+                    <span class="btn-text">BOOK A TABLE</span>
+                </button>
+            </div>
+            <div class="mobile-contact-info">
+                <div class="mobile-contact-item">
+                    <span class="contact-label">Email:</span>
+                    <span class="contact-value">reservations@delish.com</span>
+                </div>
+                <div class="mobile-contact-item">
+                    <span class="contact-label">Phone:</span>
+                    <span class="contact-value">123 456 7899</span>
+                </div>
+                <div class="mobile-contact-item">
+                    <span class="contact-label">Address:</span>
+                    <span class="contact-value">296 Ridao Avenie Mor Berlin 251584</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to Delish</h1>
+                <p>Experience the finest dining with our exquisite menu and exceptional service.</p>
+                <button class="hero-btn">Explore Menu</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
