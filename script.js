@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializeBookingModal();
     initializeHeroSlider();
+    initializeFoodMenu(); // Add this line
 });
 
 // Navigation functionality
@@ -730,6 +731,46 @@ function initializeHeroSlider() {
         sliderBg.style.backgroundSize = 'cover';
         sliderBg.style.backgroundPosition = 'center';
         sliderBg.style.backgroundRepeat = 'no-repeat';
+    }
+}
+
+// Food Menu Tab Functionality
+function initializeFoodMenu() {
+    const tabButtons = document.querySelectorAll('.food-tab-btn');
+    const foodCards = document.querySelectorAll('.food-card');
+    
+    // Add click handlers to tab buttons
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Remove active class from all buttons
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Show/hide food cards based on category
+            foodCards.forEach(card => {
+                const cardCategories = card.getAttribute('data-category').split(' ');
+                
+                if (category === 'all' || cardCategories.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Initialize with "All Food" category active
+    if (tabButtons.length > 0) {
+        const allButton = document.querySelector('.food-tab-btn[data-category="all"]');
+        if (allButton) {
+            allButton.click();
+        } else {
+            tabButtons[0].click();
+        }
     }
 }
 
