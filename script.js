@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeBookingModal();
     initializeHeroSlider();
     initializeFoodMenu(); // Add this line
+    initializeGallery();
+    initializeCounters();
 });
 
 // Navigation functionality
