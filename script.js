@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializeMobileMenu();
     initializeBookingModal();
+    initializeHeroSlider();
 });
 
 // Navigation functionality
@@ -593,6 +594,172 @@ function closeBookingSuccess() {
     if (successMessage) {
         successMessage.remove();
     }
+}
+
+// Hero Slider Functionality
+function initializeHeroSlider() {
+    const navDots = document.querySelectorAll('.nav-dot');
+    const heroButtons = document.querySelectorAll('.hero-btn');
+    let currentSlide = 0;
+    let sliderInterval;
+    
+    // Sample slider data (you can expand this with real images/content)
+    const slides = [
+        {
+            title: "Flavored Food",
+            subtitle: "The Great",
+            subtitleBottom: "Part Of Us",
+            backgroundImage: "url('./IMAGES/food.png')"
+        },
+        {
+            title: "Delicious Meals",
+            subtitle: "Amazing",
+            subtitleBottom: "Experience",
+            backgroundImage: "url('./IMAGES/food.png')"
+        },
+        {
+            title: "Fresh Ingredients",
+            subtitle: "Quality",
+            subtitleBottom: "Always",
+            backgroundImage: "url('./IMAGES/food.png')"
+        }
+    ];
+    
+    // Initialize slider
+    function initSlider() {
+        if (navDots.length > 0) {
+            navDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+            
+            // Auto-play slider
+            startAutoPlay();
+        }
+        
+        // Add hero button functionality
+        heroButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.classList.contains('book-table')) {
+                    showBookingModal();
+                } else if (this.classList.contains('view-menu')) {
+                    // Scroll to menu section or navigate to menu page
+                    const menuSection = document.querySelector('#menu');
+                    if (menuSection) {
+                        smoothScrollTo('#menu');
+                    } else {
+                        // You can add navigation to menu page here
+                        console.log('Navigate to menu page');
+                    }
+                }
+            });
+        });
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+        resetAutoPlay();
+    }
+    
+    // Update slider display
+    function updateSlider() {
+        const sliderBg = document.querySelector('.slider-bg');
+        const heroTitle = document.querySelector('.hero-title');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        const heroSubtitleBottom = document.querySelector('.hero-subtitle-bottom');
+        
+        // Update active dot
+        navDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Ensure background image is always visible
+        if (sliderBg) {
+            sliderBg.style.backgroundImage = "url('./IMAGES/food.png')";
+            sliderBg.style.backgroundSize = 'cover';
+            sliderBg.style.backgroundPosition = 'center';
+            sliderBg.style.backgroundRepeat = 'no-repeat';
+        }
+        
+        // Update content if elements exist
+        if (slides[currentSlide] && heroTitle && heroSubtitle && heroSubtitleBottom) {
+            heroTitle.textContent = slides[currentSlide].title;
+            heroSubtitle.textContent = slides[currentSlide].subtitle;
+            heroSubtitleBottom.textContent = slides[currentSlide].subtitleBottom;
+        }
+    }
+    
+    // Auto-play functionality
+    function startAutoPlay() {
+        sliderInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }, 5000); // Change slide every 5 seconds
+    }
+    
+    // Reset auto-play
+    function resetAutoPlay() {
+        clearInterval(sliderInterval);
+        startAutoPlay();
+    }
+    
+    // Pause auto-play on hover
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(sliderInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseleave', () => {
+            startAutoPlay();
+        });
+    }
+    
+    // Initialize the slider
+    initSlider();
+    
+    // Force initial background image load
+    const sliderBg = document.querySelector('.slider-bg');
+    if (sliderBg) {
+        sliderBg.style.backgroundImage = "url('./IMAGES/food.png')";
+        sliderBg.style.backgroundSize = 'cover';
+        sliderBg.style.backgroundPosition = 'center';
+        sliderBg.style.backgroundRepeat = 'no-repeat';
+    }
+}
+
+// Additional utility functions for smooth animations
+function fadeIn(element, duration = 300) {
+    element.style.opacity = '0';
+    element.style.display = 'block';
+    
+    let opacity = 0;
+    const timer = setInterval(() => {
+        opacity += 50 / duration;
+        if (opacity >= 1) {
+            clearInterval(timer);
+            opacity = 1;
+        }
+        element.style.opacity = opacity;
+    }, 50);
+}
+
+function fadeOut(element, duration = 300) {
+    let opacity = 1;
+    const timer = setInterval(() => {
+        opacity -= 50 / duration;
+        if (opacity <= 0) {
+            clearInterval(timer);
+            opacity = 0;
+            element.style.display = 'none';
+        }
+        element.style.opacity = opacity;
+    }, 50);
 }
 
 // Utility functions
