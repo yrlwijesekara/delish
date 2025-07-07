@@ -815,20 +815,22 @@ body {
 .about-section {
     position: relative;
     width: 100%;
-    height: 550px;
-    margin-top: 20px;
-    padding: 60px 0;
+    min-height: 550px;
+    height: auto;
+    margin-top: 120px;
+    padding: 80px 0;
     background: #FFFFFF;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .about-container {
     position: relative;
     width: 100%;
     max-width: 1920px;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
     margin: 0 auto;
-    padding: 0 80px;
+    padding: 0 80px 40px 80px;
 }
 
 /* Decorative Element */
@@ -838,10 +840,10 @@ body {
     height: 234px;
     left: 11px;
     top: 24px;
-    background: url('./IMAGES/decoration.png') no-repeat center center;
+    background: url('./IMAGES/decoratiohn_contact.png') no-repeat center center;
     background-size: cover;
     border-radius: 50%;
-    opacity: 0.1;
+    opacity: 0.5;
 }
 
 /* Images Section */
@@ -1009,27 +1011,342 @@ body {
     text-transform: uppercase;
 }
 
-/* Adjustments for About Section */
-.about-section {
-    overflow-y: auto;
-    max-height: 100vh;
+/* About Section Responsive Design */
+@media (max-width: 1400px) {
+    .about-container {
+        padding: 0 60px 40px 60px;
+    }
+    
+    .about-images {
+        width: 550px;
+        height: 550px;
+        left: 280px;
+    }
+    
+    .about-image-main {
+        width: 550px;
+        height: 550px;
+    }
+    
+    .about-content {
+        width: 550px;
+        right: 60px;
+    }
+    
+    .about-description {
+        width: 550px;
+    }
 }
 
-.about-container {
-    padding-bottom: 20px;
+@media (max-width: 1200px) {
+    .about-section {
+        margin-top: 80px;
+        padding: 60px 0;
+    }
+    
+    .about-container {
+        padding: 0 40px 30px 40px;
+    }
+    
+    .about-decoration {
+        width: 180px;
+        height: 180px;
+        left: 10px;
+        top: 20px;
+    }
+    
+    .about-images {
+        width: 480px;
+        height: 480px;
+        left: 220px;
+    }
+    
+    .about-image-bg {
+        width: 450px;
+        height: 380px;
+        left: 15px;
+        top: 30px;
+    }
+    
+    .about-image-main {
+        width: 480px;
+        height: 480px;
+    }
+    
+    .about-content {
+        width: 480px;
+        height: auto;
+        right: 40px;
+        top: 100px;
+    }
+    
+    .about-title {
+        width: 380px;
+        font-size: 32px;
+        line-height: 42px;
+        height: auto;
+    }
+    
+    .about-description {
+        width: 480px;
+        height: auto;
+        font-size: 16px;
+        line-height: 26px;
+        top: 170px;
+    }
+    
+    .about-contact {
+        top: 280px;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-section {
+        margin-top: 60px;
+        padding: 50px 0;
+        min-height: auto;
+    }
+    
+    .about-container {
+        padding: 0 30px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-decoration {
+        display: none;
+    }
+    
+    .about-images {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: 400px;
+        left: 0;
+        top: 0;
+        margin-bottom: 40px;
+    }
+    
+    .about-image-bg {
+        width: calc(100% - 40px);
+        height: 320px;
+        left: 20px;
+        top: 20px;
+    }
+    
+    .about-image-main {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        left: 0;
+        top: 0;
+    }
+    
+    .about-content {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        right: 0;
+        top: 0;
+        text-align: center;
+    }
+    
+    .reservation-badge {
+        position: relative;
+        width: 170px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        margin-bottom: 20px;
+    }
+    
+    .about-title {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        font-size: 28px;
+        line-height: 36px;
+        text-align: center;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .about-description {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 30px;
+        display: block;
+    }
+    
+    .about-contact {
+        position: relative;
+        width: auto;
+        height: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 768px) {
     .about-section {
-        padding: 20px 0;
+        margin-top: 40px;
+        padding: 40px 0;
     }
-
+    
     .about-container {
-        padding: 0 15px;
+        padding: 0 20px 20px 20px;
     }
-
+    
+    .about-images {
+        height: 350px;
+        margin-bottom: 30px;
+    }
+    
+    .about-image-bg {
+        height: 280px;
+    }
+    
+    .about-image-main {
+        height: 350px;
+    }
+    
+    .reservation-badge {
+        width: 150px;
+        height: 28px;
+        padding: 4px 12px;
+        margin-bottom: 15px;
+    }
+    
+    .badge-text {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+    .about-title {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .about-description {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 25px;
+    }
+    
     .about-contact {
-        margin-top: 20px;
+        gap: 10px;
+    }
+    
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        flex-shrink: 0;
+    }
+    
+    .phone-icon {
+        font-size: 14px;
+    }
+    
+    .contact-label {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+    .contact-number {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 30px 0;
+    }
+    
+    .about-container {
+        padding: 0 15px 15px 15px;
+    }
+    
+    .about-images {
+        height: 300px;
+        margin-bottom: 25px;
+    }
+    
+    .about-image-bg {
+        height: 240px;
+        left: 15px;
+        top: 15px;
+    }
+    
+    .about-image-main {
+        height: 300px;
+    }
+    
+    .reservation-badge {
+        width: 140px;
+        height: 26px;
+        padding: 3px 10px;
+    }
+    
+    .badge-text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    
+    .about-title {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 12px;
+    }
+    
+    .about-description {
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .about-contact {
+        gap: 8px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 8px auto;
+    }
+    
+    .phone-icon {
+        font-size: 12px;
+    }
+    
+    .contact-info {
+        align-items: center;
+        gap: 2px;
+    }
+    
+    .contact-label {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    
+    .contact-number {
+        font-size: 16px;
+        line-height: 22px;
     }
 }
 
@@ -1096,6 +1413,9 @@ body {
         top: 0;
         height: 80px;
         padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .nav-menu {
@@ -1108,6 +1428,9 @@ body {
     
     .mobile-menu-toggle {
         display: flex;
+        position: relative;
+        z-index: 1001;
+        margin-left: 50px;
     }
     
     .main-content {
@@ -1214,6 +1537,9 @@ body {
 @media (max-width: 480px) {
     .navbar {
         padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .logo {
@@ -1227,6 +1553,13 @@ body {
     
     .logo-text {
         font-size: 20px;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        position: relative;
+        z-index: 1001;
+        margin-left: auto;
     }
     
     .hero-content h1 {
@@ -1369,94 +1702,68 @@ body {
     }
 }
 
-/* About Section */
-.about-section {
+/* Our Restaurant Service Section */
+.services-section {
     position: relative;
     width: 100%;
-    min-height: 550px;
-    height: auto;
+    height: 1015px;
     margin-top: 120px;
-    padding: 80px 0;
-    background: #FFFFFF;
-    overflow: visible;
+    padding: 120px 0;
+    background: #FAF4EE;
+    overflow: hidden;
 }
 
-.about-container {
+.services-container {
     position: relative;
     width: 100%;
     max-width: 1920px;
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto;
-    padding: 0 80px 40px 80px;
-}
-
-/* Decorative Element */
-.about-decoration {
-    position: absolute;
-    width: 234px;
-    height: 234px;
-    left: 11px;
-    top: 24px;
-    background: url('./IMAGES/decoration.jpg') no-repeat center center;
-    background-size: cover;
-    border-radius: 50%;
-    opacity: 0.1;
-}
-
-/* Images Section */
-.about-images {
-    position: relative;
-    width: 597px;
-    height: 597px;
-    left: 307px;
-    top: 21px;
-}
-
-.about-image-bg {
-    position: absolute;
-    width: 570px;
-    height: 493px;
-    left: 13px;
-    top: 36px;
-    background: #D9D9D9;
-    border-radius: 10px;
-}
-
-.about-image-main {
-    position: absolute;
-    width: 597px;
-    height: 597px;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.about-img {
-    width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0 80px;
 }
 
-/* Content Section */
-.about-content {
+/* Background Decorative Images */
+.service-decoration {
     position: absolute;
-    width: 592px;
-    height: 359px;
-    right: 80px;
-    top: 124px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
 }
 
-/* Reservation Badge */
-.reservation-badge {
+.service-decoration-right {
+    width: 225px;
+    height: 204px;
+    right: 197px;
+    top: 82px;
+    background-image: url('./IMAGES/decoration_services_1.png');
+}
+
+.service-decoration-left {
+    width: 154px;
+    height: 121px;
+    left: 96px;
+    bottom: 170px;
+    background-image: url('./IMAGES/decoration-services.png');
+}
+
+/* Section Header */
+.services-header {
+    position: relative;
+    width: 541px;
+    height: 164px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.services-badge {
     position: absolute;
-    width: 170px;
+    width: 132px;
     height: 32px;
-    left: 0;
+    left: 50%;
     top: 0;
+    transform: translateX(-50%);
     background: #CB3A1A;
     border-radius: 5px;
     display: flex;
@@ -1465,7 +1772,7 @@ body {
     padding: 6px 16px;
 }
 
-.badge-text {
+.services-badge .badge-text {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 600;
@@ -1473,403 +1780,986 @@ body {
     line-height: 20px;
     color: #FFFFFF;
     text-transform: uppercase;
-    text-align: center;
 }
 
-/* Main Title */
-.about-title {
+.services-title {
     position: absolute;
-    width: 430px;
-    height: 78px;
+    width: 541px;
+    height: 58px;
     left: 0;
-    top: 62px;
+    top: 60px;
     font-family: 'Jost';
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
-    line-height: 50px;
+    line-height: 58px;
     display: flex;
     align-items: center;
+    text-align: center;
+    justify-content: center;
     text-transform: uppercase;
     color: #111111;
     margin: 0;
 }
 
-/* Description */
-.about-description {
+/* Decorative Elements */
+.services-dots {
     position: absolute;
-    width: 592px;
-    height: 69px;
-    left: 0;
-    top: 190px;
-    font-family: 'Jost';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 28px;
+    width: 47.49px;
+    height: 8.49px;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
     display: flex;
+    gap: 13px;
     align-items: center;
-    color: #74787C;
-    margin: 0;
 }
 
-/* Contact Info */
-.about-contact {
-    position: absolute;
-    width: 230px;
-    height: 50px;
-    left: 0;
-    top: 309px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.services-dots .dot {
+    width: 6px;
+    height: 6px;
+    background: #CB3A1A;
+    transform: rotate(-45deg);
 }
 
-.contact-icon {
+
+
+/* Service Cards Grid */
+.services-grid {
     position: relative;
-    width: 50px;
-    height: 50px;
-    background: #cb3a1a;
-    border-radius: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    justify-content: space-between;
+    gap: 25px;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
-.phone-icon {
-    font-size: 16px;
-    background-color: #FFFFFF;
-    transform: rotate(-15deg);
+.service-card {
+    position: relative;
+    width: 410px;
+    height: 540px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-.contact-label {
-    font-family: 'Jost';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #74787C;
-    text-transform: uppercase;
+.service-image {
+    position: relative;
+    width: 370px;
+    height: 250px;
+    margin: 20px auto;
+    background: #D9D9D9;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.contact-number {
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.service-content {
+    position: relative;
+    padding: 0 40px 40px 40px;
+}
+
+.service-title {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
-    line-height: 29px;
+    font-size: 24px;
+    line-height: 35px;
     color: #111111;
     text-transform: uppercase;
+    margin-bottom: 16px;
 }
 
-/* Responsive Design for About Section */
+.service-description {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #74787C;
+    margin-bottom: 30px;
+    height: 64px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.service-btn {
+    position: relative;
+    width: 192px;
+    height: 45px;
+    background: transparent;
+    border: 1px solid #CB3A1A;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.service-btn:hover {
+    background: #CB3A1A;
+    transform: translateY(-2px);
+}
+
+.service-btn:hover .btn-text {
+    color: #FFFFFF;
+}
+
+.service-btn:hover .btn-line,
+.service-btn:hover .btn-arrow {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.service-btn .btn-text {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 23px;
+    color: #CB3A1A;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.service-btn .btn-line {
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #CB3A1A;
+    transition: border-color 0.3s ease;
+}
+
+.service-btn .btn-arrow {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #CB3A1A;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Responsive Design for Services Section */
 @media (max-width: 1400px) {
-    .about-container {
+    .services-container {
         padding: 0 60px;
     }
     
-    .about-images {
-        width: 500px;
-        height: 500px;
-        left: 200px;
+    .services-grid {
+        gap: 20px;
     }
     
-    .about-image-bg {
-        width: 480px;
-        height: 400px;
-    }
-    
-    .about-image-main {
-        width: 500px;
-        height: 500px;
-    }
-    
-    .about-content {
-        width: 500px;
-        right: 60px;
-    }
-    
-    .about-title {
+    .service-card {
         width: 380px;
-        font-size: 36px;
-        line-height: 45px;
     }
     
-    .about-description {
-        width: 500px;
-        font-size: 16px;
-        line-height: 26px;
+    .service-image {
+        width: 340px;
     }
 }
 
 @media (max-width: 1200px) {
-    .about-section {
+    .services-section {
         height: auto;
-        padding: 60px 0;
+        padding: 80px 0;
     }
     
-    .about-container {
+    .services-container {
         padding: 0 40px;
     }
     
-    .about-images {
-        width: 400px;
-        height: 400px;
-        left: 100px;
+    .services-grid {
+        gap: 15px;
     }
     
-    .about-image-bg {
-        width: 380px;
-        height: 320px;
-    }
-    
-    .about-image-main {
-        width: 400px;
-        height: 400px;
-    }
-    
-    .about-content {
-        width: 450px;
-        right: 40px;
-        top: 100px;
-    }
-    
-    .about-title {
+    .service-card {
         width: 350px;
-        font-size: 32px;
-        line-height: 40px;
+        height: 500px;
     }
     
-    .about-description {
-        width: 450px;
-        font-size: 16px;
-        line-height: 24px;
+    .service-image {
+        width: 310px;
+        height: 220px;
+    }
+    
+    .services-title {
+        font-size: 36px;
+        line-height: 52px;
     }
 }
 
 @media (max-width: 992px) {
-    .about-section {
-        height: auto;
-        min-height: auto;
-        padding: 50px 0 80px 0;
+    .services-section {
+        padding: 60px 0;
+        margin-top: 80px;
     }
     
-    .about-container {
-        padding: 0 30px 40px 30px;
+    .services-container {
+        padding: 0 30px;
     }
     
-    .about-images {
-        position: relative;
+    .services-header {
         width: 100%;
-        height: 350px;
-        left: 0;
-        top: 0;
-        margin-bottom: 40px;
+        max-width: 500px;
+        margin-bottom: 60px;
     }
     
-    .about-image-bg {
-        width: 90%;
-        height: 280px;
-        left: 5%;
-        top: 35px;
-    }
-    
-    .about_image-main {
+    .services-title {
         width: 100%;
-        height: 350px;
-        left: 0;
-        top: 0;
-    }
-    
-    .about-content {
-        position: relative;
-        width: 100%;
-        height: auto;
-        right: auto;
-        top: 0;
-    }
-    
-    .about-title {
-        position: relative;
-        width: 100%;
-        height: auto;
-        left: 0;
-        top: 20px;
         font-size: 28px;
-        line-height: 35px;
+        line-height: 40px;
     }
     
-    .about-description {
-        position: relative;
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .service-card {
         width: 100%;
+        max-width: 400px;
         height: auto;
-        left: 0;
-        top: 40px;
-        font-size: 16px;
-        line-height: 24px;
+        min-height: 480px;
     }
     
-    .about-contact {
-        position: relative;
-        width: 100%;
-        left: 0;
-        top: 60px;
+    .service-image {
+        width: calc(100% - 40px);
+        height: 200px;
     }
     
-    .about-decoration {
+    .service-decoration-right,
+    .service-decoration-left {
         display: none;
     }
 }
 
 @media (max-width: 768px) {
-    .about-section {
-        padding: 40px 0 60px 0;
-        min-height: auto;
-        height: auto;
+    .services-section {
+        padding: 40px 0;
     }
     
-    .about-container {
-        padding: 0 20px 30px 20px;
+    .services-container {
+        padding: 0 20px;
     }
     
-    .about-images {
-        height: 300px;
-        margin-bottom: 30px;
+    .services-header {
+        margin-bottom: 40px;
     }
     
-    .about-image-bg {
-        height: 240px;
-        top: 30px;
-    }
-    
-    .about-image-main {
-        height: 300px;
-    }
-    
-    .reservation-badge {
-        width: 150px;
+    .services-badge {
+        width: 120px;
         height: 28px;
         padding: 4px 12px;
-        margin-bottom: 20px;
-        position: relative;
     }
     
-    .badge-text {
+    .services-badge .badge-text {
         font-size: 12px;
         line-height: 18px;
     }
     
-    .about-title {
+    .services-title {
         font-size: 24px;
-        line-height: 30px;
-        top: 15px;
-        margin-bottom: 20px;
-        position: relative;
+        line-height: 32px;
+        top: 50px;
     }
     
-    .about-description {
+    .services-grid {
+        gap: 25px;
+    }
+    
+    .service-card {
+        max-width: 100%;
+        min-height: 450px;
+    }
+    
+    .service-image {
+        height: 180px;
+    }
+    
+    .service-content {
+        padding: 0 30px 30px 30px;
+    }
+    
+    .service-title {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 12px;
+    }
+    
+    .service-description {
         font-size: 14px;
         line-height: 22px;
-        top: 30px;
-        margin-bottom: 30px;
-        position: relative;
-    }
-    
-    .about-contact {
-        top: 50px;
-        margin-bottom: 20px;
-        position: relative;
+        margin-bottom: 25px;
         height: auto;
+        min-height: 50px;
     }
     
-    .contact-icon {
-        width: 40px;
+    .service-btn {
+        width: 170px;
         height: 40px;
     }
     
-    .phone-icon {
+    .service-btn .btn-text {
         font-size: 14px;
-    }
-    
-    .contact-label {
-        font-size: 12px;
-        line-height: 18px;
-    }
-    
-    .contact-number {
-        font-size: 18px;
-        line-height: 24px;
     }
 }
 
 @media (max-width: 480px) {
-    .about-section {
-        padding: 20px 0 50px 10px;
-        min-height: auto;
-        height: auto;
+    .services-section {
+        padding: 30px 0;
     }
     
-    .about-container {
-        padding: 0 15px 30px 15px;
+    .services-container {
+        padding: 0 15px;
     }
     
-    .about-images {
-        height: 250px;
-        margin-bottom: 25px;
-    }
-    
-    .about-image-bg {
-        height: 200px;
-        top: 25px;
-    }
-    
-    .about-image-main {
-        height: 250px;
-    }
-    
-    .reservation-badge {
-        margin-bottom: 15px;
-        position: relative;
-    }
-    
-    .about-title {
+    .services-title {
         font-size: 20px;
-        line-height: 26px;
-        margin-bottom: 20px;
-        position: relative;
+        line-height: 28px;
     }
     
-    .about-description {
+    .services-grid {
+        gap: 20px;
+    }
+    
+    .service-card {
+        min-height: 420px;
+    }
+    
+    .service-image {
+        height: 160px;
+        margin: 15px auto;
+    }
+    
+    .service-content {
+        padding: 0 25px 25px 25px;
+    }
+    
+    .service-title {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    
+    .service-description {
         font-size: 14px;
         line-height: 20px;
-        margin-bottom: 25px;
-        position: relative;
+        margin-bottom: 20px;
     }
     
-    .about-contact {
-        position: relative;
-        margin-bottom: 25px;
-        height: auto;
+    .service-btn {
+        width: 150px;
+        height: 38px;
+        padding-left: 15px;
     }
     
-    .contact-icon {
-        width: 32px;
-        height: 32px;
+    .service-btn .btn-text {
+        font-size: 12px;
     }
     
-    .phone-icon {
-        font-size: 10px;
+    .service-btn .btn-line {
+        width: 15px;
+        right: 35px;
     }
     
-    .contact-number {
+    .service-btn .btn-arrow {
+        right: 15px;
+        font-size: 12px;
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    position: relative;
+    width: 100%;
+    min-height: 900px;
+    margin-top: 120px;
+    padding: 120px 0;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.contact-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+/* Section Header */
+.contact-header {
+    position: relative;
+    width: 541px;
+    height: 164px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.contact-badge {
+    position: absolute;
+    width: 132px;
+    height: 32px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background: #CB3A1A;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+}
+
+.contact-badge .badge-text {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.contact-title {
+    position: absolute;
+    width: 541px;
+    height: 58px;
+    left: 0;
+    top: 60px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #111111;
+    margin: 0;
+}
+
+/* Decorative Elements */
+.contact-dots {
+    position: absolute;
+    width: 47.49px;
+    height: 8.49px;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+
+.contact-dots .dot {
+    width: 6px;
+    height: 6px;
+    background: #CB3A1A;
+    transform: rotate(-45deg);
+}
+
+.contact-line {
+    position: absolute;
+    width: 1px;
+    height: 31px;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    background: #CB3A1A;
+}
+
+/* Contact Content Layout */
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Contact Info Grid */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-info-card {
+    position: relative;
+    background: #FAF4EE;
+    border-radius: 10px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(203, 58, 26, 0.1);
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(203, 58, 26, 0.1);
+}
+
+.contact-card-icon {
+    width: 60px;
+    height: 60px;
+    background: #CB3A1A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    transition: transform 0.3s ease;
+}
+
+.contact-info-card:hover .contact-card-icon {
+    transform: scale(1.1);
+}
+
+.contact-card-icon .icon {
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.contact-card-title {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #111111;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.contact-card-text {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #74787C;
+    margin-bottom: 8px;
+}
+
+.contact-card-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Contact Form */
+.contact-form-wrapper {
+    background: #FAF4EE;
+    border-radius: 15px;
+    padding: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    color: #111111;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group.full-width {
+    flex: none;
+    width: 100%;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 18px 20px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #111111;
+    background: #FFFFFF;
+    border: 2px solid rgba(203, 58, 26, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #CB3A1A;
+    box-shadow: 0 0 0 3px rgba(203, 58, 26, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #74787C;
+    font-family: 'Jost';
+    font-weight: 400;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-submit-btn {
+    position: relative;
+    width: 220px;
+    height: 55px;
+    background: #CB3A1A;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 30px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin: 20px auto 0 auto;
+}
+
+.contact-submit-btn:hover {
+    background: #a02e15;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(203, 58, 26, 0.3);
+}
+
+.contact-submit-btn .btn-text {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 23px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.contact-submit-btn .btn-line {
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    right: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #FFFFFF;
+    transition: background 0.3s ease;
+}
+
+.contact-submit-btn .btn-arrow {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Responsive Design for Contact Section */
+@media (max-width: 1400px) {
+    .contact-container {
+        padding: 0 60px;
+    }
+    
+    .contact-info-grid {
+        gap: 25px;
+    }
+    
+    .contact-form-wrapper {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .contact-section {
+        padding: 80px 0;
+        margin-top: 80px;
+    }
+    
+    .contact-container {
+        padding: 0 40px;
+    }
+    
+    .contact-header {
+        margin-bottom: 60px;
+    }
+    
+    .contact-title {
+        font-size: 36px;
+        line-height: 52px;
+    }
+    
+    .contact-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .contact-form-wrapper {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+    
+    .contact-container {
+        padding: 0 30px;
+    }
+    
+    .contact-header {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 50px;
+    }
+    
+    .contact-title {
+        width: 100%;
+        font-size: 28px;
+        line-height: 40px;
+    }
+    
+    .contact-content {
+        gap: 40px;
+    }
+    
+    .contact-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .contact-info-card {
+        padding: 30px 20px;
+    }
+    
+    .contact-card-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-card-icon .icon {
+        font-size: 20px;
+    }
+    
+    .contact-form-wrapper {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 40px 0;
+    }
+    
+    .contact-container {
+        padding: 0 20px;
+    }
+    
+    .contact-header {
+        margin-bottom: 40px;
+    }
+    
+    .contact-badge {
+        width: 120px;
+        height: 28px;
+        padding: 4px 12px;
+    }
+    
+    .contact-badge .badge-text {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+    .contact-title {
+        font-size: 24px;
+        line-height: 32px;
+        top: 50px;
+    }
+    
+    .contact-content {
+        gap: 30px;
+    }
+    
+    /* Mobile: 1 card per row */
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .contact-info-card {
+        padding: 25px 20px;
+    }
+    
+    .contact-card-title {
         font-size: 16px;
         line-height: 22px;
+        margin-bottom: 12px;
+    }
+    
+    .contact-card-text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .contact-form-wrapper {
+        padding: 25px;
+    }
+    
+    .form-title {
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-form {
+        gap: 20px;
+    }
+    
+    .form-input,
+    .form-textarea {
+        padding: 15px 18px;
+        font-size: 14px;
+    }
+    
+    .contact-submit-btn {
+        width: 200px;
+        height: 50px;
+        margin: 15px auto 0 auto;
+    }
+    
+    .contact-submit-btn .btn-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 30px 0;
+    }
+    
+    .contact-container {
+        padding: 0 15px;
+    }
+    
+    .contact-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    
+    .contact-info-card {
+        padding: 20px 15px;
+    }
+    
+    .contact-card-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 15px;
+    }
+    
+    .contact-card-icon .icon {
+        font-size: 18px;
+    }
+    
+    .contact-card-title {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .contact-card-text {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    
+    .contact-form-wrapper {
+        padding: 20px;
+    }
+    
+    .form-title {
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 25px;
+    }
+    
+    .form-input,
+    .form-textarea {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .form-textarea {
+        min-height: 100px;
+    }
+    
+    .contact-submit-btn {
+        width: 180px;
+        height: 45px;
+        padding-left: 25px;
+    }
+    
+    .contact-submit-btn .btn-text {
+        font-size: 13px;
+    }
+    
+    .contact-submit-btn .btn-line {
+        width: 20px;
+        right: 45px;
+    }
+    
+    .contact-submit-btn .btn-arrow {
+        right: 20px;
+        font-size: 14px;
     }
 }
