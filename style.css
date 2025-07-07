@@ -579,7 +579,7 @@ body {
 }
 
 .opening-hours.right {
-    right: 120px;
+    left: 1751px;
     top: 440px;
 }
 
@@ -591,6 +591,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 .hero-content {
@@ -635,7 +636,7 @@ body {
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     animation: slideInUp 0.8s ease-out;
     animation-delay: 0.2s;
 }
@@ -684,16 +685,13 @@ body {
     width: 279.63px;
     height: 30px;
     left: 50%;
-    bottom: -90px;
+    bottom: -150px;
     transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: slideInUp 0.8s ease-out;
-    animation-delay: 0.6s;
+    z-index: 15;
 }
 
 .hero-btn {
+    position: absolute;
     background: none;
     border: none;
     font-family: 'Jost';
@@ -701,32 +699,52 @@ body {
     font-weight: 600;
     font-size: 16px;
     line-height: 23px;
+    display: flex;
+    align-items: center;
     text-transform: uppercase;
     color: #FFFFFF;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.hero-btn:hover {
-    color: #CB3A1A;
-}
+
 
 .hero-btn.book-table {
-    width: 114px;
+    width: 134px;
+    height: 23px;
+    left: calc(50% - 114px/2 - 88px);
+    top: 0;
+    font-size: 10px;
 }
 
 .hero-btn.view-menu {
-    width: 94px;
+    width: 134px;
+    height: 23px;
+    left: calc(50% - 124px/2 + 86.63px);
+    top: 0;
+    font-size: 10px;
 }
 
-.button-underline {
+/* Button Hover Underline */
+.hero-btn::after {
+    content: '';
     position: absolute;
     width: 118px;
     height: 2px;
     left: 50%;
-    bottom: -118px;
+    bottom: -28px;
     transform: translateX(-50%);
     background: #FFFFFF;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-btn:hover::after {
+    opacity: 1;
+}
+
+.button-underline {
+    display: none;
 }
 
 /* Slider Border */
@@ -888,45 +906,69 @@ body {
     
     .hero-slider {
         height: 600px;
-        margin-top: 120px;
+        margin-top: 80px;
     }
     
-    .hero-content-wrapper {
-        width: 95%;
-        height: auto;
-        padding: 20px;
-    }
-    
-    .hero-title {
-        font-size: 40px;
-        line-height: 50px;
-        position: relative;
-        margin: 20px 0;
-    }
-    
-    .hero-subtitle,
-    .hero-subtitle-bottom {
-        font-size: 24px;
-        line-height: 32px;
-        position: relative;
-        margin: 10px 0;
-    }
-    
-    .decorative-line {
+    /* Hide all hero content except buttons on mobile */
+    .hero-content-wrapper .hero-subtitle,
+    .hero-content-wrapper .hero-title,
+    .hero-content-wrapper .hero-subtitle-bottom,
+    .decorative-line,
+    .opening-hours {
         display: none;
     }
     
+    /* Show only buttons on mobile */
     .hero-buttons {
-        position: relative;
-        bottom: auto;
-        margin-top: 40px;
-        flex-direction: column;
-        gap: 20px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
         height: auto;
+        gap: 10px;
+        padding: 0 20px;
     }
     
-    .button-underline {
-        display: none;
+    .hero-btn {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: auto;
+        height: auto;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+    
+    .hero-btn:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-btn::after {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        left: 50%;
+        bottom: -8px;
+        transform: translateX(-50%);
+        background: #FFFFFF;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .hero-btn:hover::after {
+        opacity: 1;
     }
     
     .slider-nav {
@@ -997,6 +1039,7 @@ body {
     .hero-title {
         font-size: 28px;
         line-height: 36px;
+        color: #FFFFFF !important;
     }
     
     .hero-subtitle,
@@ -1006,12 +1049,13 @@ body {
     }
     
     .hero-buttons {
-        gap: 15px;
+        gap: 10px;
+        padding: 0 15px;
     }
     
     .hero-btn {
         font-size: 14px;
-        padding: 10px 20px;
+        padding: 10px 16px;
     }
     
     .slider-nav {
@@ -1100,11 +1144,5 @@ body {
     
     .main-content {
         margin-top: 0;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .hero-content-wrapper {
-        display: none; /* Hide hero content on mobile */
     }
 }
