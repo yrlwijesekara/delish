@@ -3149,3 +3149,66 @@ body {
         min-width: 80px;
     }
 }
+
+/* Chef Image in Food Menu */
+.chef-image-container {
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chef-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.chef-img:hover {
+    transform: scale(1.03);
+}
+
+/* Tab Navigation Updates */
+.food-menu-tabs {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    left: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: flex-end !important;
+    width: 100% !important;
+}
+
+.food-tab-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+    border: 1px solid transparent;
+    background: #f5f5f5;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    min-width: fit-content;
+}
+
+.food-tab-btn.active {
+    background: white;
+    color: red;
+    border: 1px solid #e74c3c !important;
+}
+
+.food-tab-btn:hover {
+    background: white;
+    color: red;
+    border: 1px solid #e74c3c !important;
+}
