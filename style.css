@@ -4210,58 +4210,57 @@ body {
 .reservation-section {
     position: relative;
     padding: 80px 0;
+    background-color: #F6F6F6;
 }
 
 .reservation-container {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+.reservation-card-wrapper {
     display: flex;
-    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.reservation-bg {
-    position: absolute;
-    width: 100%;
-    height: 715px;
-    top: 0;
-    left: 0;
-    background: #F6F6F6;
-    z-index: -1;
-}
-
-.reservation-decoration {
-    position: absolute;
-    width: 74px;
-    height: 57px;
-    left: 150px;
-    top: 50px;
-    background: #E7E6E6;
-    z-index: 0;
-}
-
-.reservation-content {
-    width: 50%;
+.reservation-card {
+    flex: 1;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
     padding: 40px;
-    position: relative;
-    z-index: 1;
+    max-width: 500px;
 }
 
 .reservation-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .reservation-badge {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 6px 16px;
     background: #CB3A1A;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin:  20px 400px 20px;
+    width: fit-content;
+    ;
 }
 
 .reservation-badge .badge-text {
+    
     font-family: 'Jost', sans-serif;
     font-weight: 600;
     font-size: 14px;
@@ -4277,7 +4276,9 @@ body {
     line-height: 58px;
     text-transform: uppercase;
     color: #111111;
-    margin: 0 0 20px;
+    margin: 0 auto 20px;
+    text-align: center;
+    width: 100%;
 }
 
 .reservation-dots {
@@ -4294,19 +4295,10 @@ body {
     transform: rotate(-45deg);
 }
 
-.reservation-line {
-    width: 1px;
-    height: 31px;
-    background: #CB3A1A;
-    margin: 0 auto 20px;
-}
-
 .reservation-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 442px;
-    margin: 0 auto;
 }
 
 .form-field {
@@ -4316,8 +4308,9 @@ body {
 .reservation-input {
     width: 100%;
     height: 50px;
-    background: #FFFFFF;
-    border: none;
+    background: #F9F9F9;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
     padding: 0 25px;
     font-family: 'Jost', sans-serif;
     font-size: 16px;
@@ -4343,6 +4336,7 @@ body {
     height: 50px;
     background: #CB3A1A;
     border: none;
+    border-radius: 5px;
     font-family: 'Jost', sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -4357,20 +4351,20 @@ body {
     background: #b02f14;
 }
 
-.reservation-image {
-    width: 50%;
-    position: relative;
+.reservation-image-container {
+    flex: 1;
+    max-width: 500px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .food-reservation-img {
-    width: 90%;
-    height: 560px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
-    object-position: center;
-    box-shadow: 0px 4px 48px rgba(23, 11, 11, 0.05);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive styles */
@@ -4390,18 +4384,19 @@ body {
         line-height: 46px;
     }
     
-    .reservation-container {
+    .reservation-card-wrapper {
         flex-direction: column;
     }
     
-    .reservation-content,
-    .reservation-image {
-        width: 100%;
+    .reservation-card,
+    .reservation-image-container {
+        max-width: 100%;
     }
     
-    .reservation-image {
-        margin-top: 40px;
-        padding: 0 40px;
+    .reservation-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -4414,6 +4409,7 @@ body {
     .reservation-title {
         font-size: 32px;
         line-height: 42px;
+        text-align: center;
     }
     
     .testimonial-content {
@@ -4431,9 +4427,18 @@ body {
         line-height: 20px;
     }
     
-    .food-reservation-img {
-        height: 400px;
+    .reservation-card {
+        padding: 30px;
     }
+    
+    .food-reservation-img {
+        max-height: 400px;
+    }
+    
+    .reservation-badge {
+        margin: 0 auto 20px !important;
+    }
+    
 }
 
 @media (max-width: 480px) {
@@ -4446,6 +4451,12 @@ body {
     .reservation-title {
         font-size: 28px;
         line-height: 38px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .reservation-badge {
+        margin: 0 auto 15px;
     }
     
     .testimonial-card-inner {
@@ -4463,12 +4474,7 @@ body {
         height: auto;
     }
     
-    .food-reservation-img {
-        height: 300px;
+    .reservation-card {
+        padding: 25px 20px;
     }
 }
-
-
-
-
-

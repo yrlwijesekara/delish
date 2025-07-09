@@ -699,70 +699,66 @@
         <!-- Reservation Section -->
         <section class="reservation-section">
             <div class="reservation-container">
-                <!-- Background -->
-                <div class="reservation-bg"></div>
-                
-                <!-- Decorative Element -->
-                <div class="reservation-decoration"></div>
-                
-                <!-- Reservation Form -->
-                <div class="reservation-content">
-                    <div class="reservation-header">
-                        <div class="reservation-badge">
-                            <span class="badge-text">Book A Table</span>
-                        </div>
-                        <h2 class="reservation-title">MAKE RESERVATION</h2>
-                        
-                        <!-- Decorative dots -->
-                        <div class="reservation-dots">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
+                <!-- Card and Image Container -->
+                <div class="reservation-card-wrapper">
+                    <!-- Reservation Form Card -->
+                    <div class="reservation-card">
+                        <div class="reservation-header">
+                            <div class="reservation-badge">
+                                <span class="badge-text">Book A Table</span>
+                            </div>
+                            <h2 class="reservation-title">MAKE RESERVATION</h2>
+                            
+                            <!-- Decorative dots -->
+                            <div class="reservation-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
                         </div>
                         
+                        <!-- Form Fields -->
+                        <div class="reservation-form">
+                            <div class="form-field">
+                                <select class="reservation-input">
+                                    <option>1 Person</option>
+                                    <option>2 People</option>
+                                    <option>3 People</option>
+                                    <option>4 People</option>
+                                    <option>5+ People</option>
+                                </select>
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                            
+                            <div class="form-field">
+                                <input type="date" class="reservation-input" value="2024-05-16">
+                                <i class="bi bi-calendar"></i>
+                            </div>
+                            
+                            <div class="form-field">
+                                <select class="reservation-input">
+                                    <option>09:00 am</option>
+                                    <option>10:00 am</option>
+                                    <option>11:00 am</option>
+                                    <option>12:00 pm</option>
+                                    <option>01:00 pm</option>
+                                    <option>06:00 pm</option>
+                                    <option>07:00 pm</option>
+                                    <option>08:00 pm</option>
+                                    <option>09:00 pm</option>
+                                </select>
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            
+                            <button class="reservation-btn">BOOK NOW</button>
+                        </div>
                     </div>
                     
-                    <!-- Form Fields -->
-                    <div class="reservation-form">
-                        <div class="form-field">
-                            <select class="reservation-input">
-                                <option>1 Person</option>
-                                <option>2 People</option>
-                                <option>3 People</option>
-                                <option>4 People</option>
-                                <option>5+ People</option>
-                            </select>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                        
-                        <div class="form-field">
-                            <input type="date" class="reservation-input" value="2024-05-16">
-                            <i class="bi bi-calendar"></i>
-                        </div>
-                        
-                        <div class="form-field">
-                            <select class="reservation-input">
-                                <option>09:00 am</option>
-                                <option>10:00 am</option>
-                                <option>11:00 am</option>
-                                <option>12:00 pm</option>
-                                <option>01:00 pm</option>
-                                <option>06:00 pm</option>
-                                <option>07:00 pm</option>
-                                <option>08:00 pm</option>
-                                <option>09:00 pm</option>
-                            </select>
-                            <i class="bi bi-clock"></i>
-                        </div>
-                        
-                        <button class="reservation-btn">BOOK NOW</button>
+                    <!-- Reservation Image -->
+                    <div class="reservation-image-container">
+                        <img src="./IMAGES/reservation-section.png" alt="Delicious Food" class="food-reservation-img">
                     </div>
-                </div>
-                
-                <!-- Reservation Image -->
-                <div class="reservation-image">
-                    <img src="./IMAGES/reservation-section.png" alt="Delicious Food" class="food-reservation-img">
                 </div>
             </div>
         </section>
