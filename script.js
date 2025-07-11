@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFoodMenu(); // Add this line
     initializeGallery();
     initializeCounters();
+    initializeContactForm(); // Add contact form initialization
 });
 
 // Navigation functionality
@@ -879,6 +880,274 @@ function initializeCounters() {
     });
 }
 
+// Contact Form functionality
+function initializeContactForm() {
+    // Create contact form styles if not exists
+    if (!document.querySelector('#contact-form-styles')) {
+        const styles = document.createElement('style');
+        styles.id = 'contact-form-styles';
+        styles.textContent = `
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contact-form h2 {
+                margin-bottom: 20px;
+                color: #111;
+                text-align: center;
+                font-size: 28px;
+            }
+            
+            .form-group {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .form-group label {
+                margin-bottom: 8px;
+                font-weight: 600;
+                color: #111;
+                font-size: 16px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+                border: 2px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+                font-family: 'Jost', sans-serif;
+                transition: border-color 0.3s ease;
+            }
+            
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: #CB3A1A;
+            }
+            
+            .submit-contact-btn {
+                background: #CB3A1A;
+                color: white;
+                border: none;
+                padding: 15px;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                text-transform: uppercase;
+                transition: all 0.3s ease;
+                margin-top: 10px;
+            }
+            
+            .submit-contact-btn:hover {
+                background: #a02e15;
+                transform: translateY(-2px);
+            }
+        `;
+        document.head.appendChild(styles);
+    }
+}
+
+function showContactForm() {
+    // Create form if it doesn't exist
+    let form = document.getElementById('contact-form');
+    if (!form) {
+        form = document.createElement('div');
+        form.id = 'contact-form';
+        form.className = 'contact-form';
+        form.innerHTML = `
+            <h2>Contact Us</h2>
+            <form onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                    <label for="contact-name">Full Name *</label>
+                    <input type="text" id="contact-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email *</label>
+                    <input type="email" id="contact-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message *</label>
+                    <textarea id="contact-message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-contact-btn">Send Message</button>
+            </form>
+        `;
+        document.body.appendChild(form);
+    }
+    
+    // Show form
+    form.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Close form on outside click
+    form.addEventListener('click', function(e) {
+        if (e.target === form) {
+            closeContactForm();
+        }
+    });
+    
+    // Close form on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && form.style.display === 'block') {
+            closeContactForm();
+        }
+    });
+}
+
+function closeContactForm() {
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function handleContactSubmit(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(event.target);
+    const contactData = Object.fromEntries(formData);
+    
+    // Validate form
+    if (!validateContactForm(contactData)) {
+        return;
+    }
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('.submit-contact-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    // Simulate API call
+    setTimeout(() => {
+        // Show success message
+        showContactSuccess(contactData);
+        
+        // Reset form
+        event.target.reset();
+        
+        // Close form
+        closeContactForm();
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }, 2000);
+}
+
+function validateContactForm(data) {
+    const requiredFields = ['name', 'email', 'message'];
+    
+    for (const field of requiredFields) {
+        if (!data[field] || data[field].trim() === '') {
+            alert(`Please fill in the ${field.charAt(0).toUpperCase() + field.slice(1)} field.`);
+            return false;
+        }
+    }
+    
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+    
+    return true;
+}
+
+function showContactSuccess(contactData) {
+    // Create success message
+    const successMessage = document.createElement('div');
+    successMessage.className = 'contact-success';
+    successMessage.innerHTML = `
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h3>Message Sent!</h3>
+            <p>Thank you, ${contactData.name}! Your message has been sent successfully.</p>
+            <p>We'll get back to you at ${contactData.email} shortly.</p>
+            <button onclick="closeContactSuccess()" class="success-close-btn">Close</button>
+        </div>
+    `;
+    
+    // Add success message styles
+    const styles = document.createElement('style');
+    styles.textContent = `
+        .contact-success {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2001;
+        }
+        
+        .success-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        
+        .success-content h3 {
+            color: #111;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .success-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .success-close-btn {
+            background: #CB3A1A;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .success-close-btn:hover {
+            background: #a02e15;
+        }
+    `;
+    
+    document.head.appendChild(styles);
+    document.body.appendChild(successMessage);
+}
+
+function closeContactSuccess() {
+    const successMessage = document.querySelector('.contact-success');
+    if (successMessage) {
+        successMessage.remove();
+    }
+}
+
 // Additional utility functions for smooth animations
 function fadeIn(element, duration = 300) {
     element.style.opacity = '0';
@@ -978,3 +1247,166 @@ function throttle(func, limit) {
 window.addEventListener('scroll', throttle(function() {
     // Custom scroll handling here if needed
 }, 100));
+
+// Contact Form Functionality
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleContactFormSubmission(this);
+    });
+    
+    // Add real-time validation
+    const formInputs = contactForm.querySelectorAll('input, select, textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateField(this);
+        });
+        
+        input.addEventListener('input', function() {
+            clearFieldError(this);
+        });
+    });
+}
+
+function handleContactFormSubmission(form) {
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    
+    // Show loading state
+    submitBtn.innerHTML = '<span class="btn-text">Sending...</span>';
+    submitBtn.disabled = true;
+    
+    // Collect form data
+    const formData = new FormData(form);
+    const formObject = {};
+    
+    for (let [key, value] of formData.entries()) {
+        formObject[key] = value;
+    }
+    
+    // Validate form
+    if (!validateContactForm(form)) {
+        resetSubmitButton(submitBtn, originalText);
+        return;
+    }
+    
+    // Simulate form submission (replace with actual API call)
+    setTimeout(() => {
+        // Show success message
+        showContactFormMessage('Thank you for your message! We will get back to you soon.', 'success');
+        
+        // Reset form
+        form.reset();
+        
+        // Reset button
+        resetSubmitButton(submitBtn, originalText);
+    }, 2000);
+}
+
+function validateContactForm(form) {
+    let isValid = true;
+    const requiredFields = form.querySelectorAll('[required]');
+    
+    requiredFields.forEach(field => {
+        if (!validateField(field)) {
+            isValid = false;
+        }
+    });
+    
+    return isValid;
+}
+
+function validateField(field) {
+    const value = field.value.trim();
+    const fieldType = field.type;
+    let isValid = true;
+    let errorMessage = '';
+    
+    // Clear previous errors
+    clearFieldError(field);
+    
+    // Check if required field is empty
+    if (field.hasAttribute('required') && !value) {
+        errorMessage = 'This field is required';
+        isValid = false;
+    }
+    // Validate email
+    else if (fieldType === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            errorMessage = 'Please enter a valid email address';
+            isValid = false;
+        }
+    }
+    // Validate name (no numbers or special characters)
+    else if (field.name === 'userName' && value) {
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        if (!nameRegex.test(value)) {
+            errorMessage = 'Name should only contain letters and spaces';
+            isValid = false;
+        }
+    }
+    
+    if (!isValid) {
+        showFieldError(field, errorMessage);
+    }
+    
+    return isValid;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
+    
+    // Remove existing error message
+    const existingError = field.parentNode.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Create error message element
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    field.parentNode.appendChild(errorDiv);
+}
+
+function clearFieldError(field) {
+    field.classList.remove('error');
+    const errorMessage = field.parentNode.querySelector('.error-message');
+    if (errorMessage) {
+        errorMessage.remove();
+    }
+}
+
+function showContactFormMessage(message, type) {
+    // Create message element
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `contact-form-message ${type}`;
+    messageDiv.innerHTML = `
+        <div class="message-content">
+            <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Insert message before the form
+    const form = document.getElementById('contactForm');
+    const formWrapper = form.parentNode;
+    formWrapper.insertBefore(messageDiv, form);
+    
+    // Auto-remove message after 5 seconds
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.remove();
+        }
+    }, 5000);
+}
+
+function resetSubmitButton(button, originalText) {
+    button.innerHTML = originalText;
+    button.disabled = false;
+}
