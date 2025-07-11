@@ -228,17 +228,17 @@
                 <form class="contact-form" id="contactForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" id="userName" name="userName" placeholder="Your Name" class="form-input" required>
+                            <input type="text" id="userName" name="userName" placeholder="Your Name" class="form-input" autocomplete="name" required>
                             <i class="bi bi-person form-icon"></i>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email Address" class="form-input" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address" class="form-input" autocomplete="email" required>
                             <i class="bi bi-envelope form-icon"></i>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <select id="subject" name="subject" class="form-select" required>
+                        <select id="subject" name="subject" class="form-select" autocomplete="off" required>
                             <option value="">Select Subject</option>
                             <option value="general">General Inquiry</option>
                             <option value="reservation">Table Reservation</option>
@@ -250,7 +250,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Type Your Message" class="form-textarea" rows="5" required></textarea>
+                        <textarea id="message" name="message" placeholder="Type Your Message" class="form-textarea" autocomplete="off" rows="5" required></textarea>
                     </div>
                     
                     <button type="submit" class="submit-btn">
@@ -330,7 +330,7 @@
                     Subscribe us & receive our offers and updates in your inbox directly
                 </p>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="Email Address" class="newsletter-input">
+                    <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Email Address" class="newsletter-input" autocomplete="email">
                     <button type="submit" class="newsletter-button">
                         <i class="bi bi-arrow-right"></i>
                     </button>

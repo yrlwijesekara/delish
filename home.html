@@ -723,7 +723,7 @@
                         <!-- Form Fields -->
                         <div class="reservation-form">
                             <div class="form-field">
-                                <select class="reservation-input">
+                                <select id="reservation-people" name="reservation-people" class="reservation-input" autocomplete="off">
                                     <option>1 Person</option>
                                     <option>2 People</option>
                                     <option>3 People</option>
@@ -734,12 +734,12 @@
                             </div>
                             
                             <div class="form-field">
-                                <input type="date" class="reservation-input" value="2024-05-16">
+                                <input type="date" id="reservation-date" name="reservation-date" class="reservation-input" value="2024-05-16" autocomplete="off">
                                 <i class="bi bi-calendar"></i>
                             </div>
                             
                             <div class="form-field">
-                                <select class="reservation-input">
+                                <select id="reservation-time" name="reservation-time" class="reservation-input" autocomplete="off">
                                     <option>09:00 am</option>
                                     <option>10:00 am</option>
                                     <option>11:00 am</option>
@@ -826,7 +826,7 @@
                     Subscribe us & receive our offers and updates in your inbox directly
                 </p>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="Email Address" class="newsletter-input">
+                    <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Email Address" class="newsletter-input" autocomplete="email">
                     <button type="submit" class="newsletter-button">
                         <i class="bi bi-arrow-right"></i>
                     </button>
