@@ -258,6 +258,8 @@
     color: #FFFFFF;
     text-align: center;
     padding: 0 20px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .aboutus-hero-title {
@@ -268,6 +270,7 @@
     text-transform: uppercase;
     margin-bottom: 20px;
     animation: fadeInDown 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .aboutus-hero-breadcrumb {
@@ -291,17 +294,19 @@
 
 .aboutus-hero-backdrop {
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     font-size: 140px;
     line-height: 202px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(7.5px);
-    padding: 0 30px;
-    animation: fadeIn 2s ease-out;
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
 }
 
 @keyframes fadeInDown {
@@ -368,7 +373,9 @@
 @media screen and (max-width: 992px) {
     .aboutus-section {
         max-width: 720px;
-        gap: 30px;
+        gap: 40px;
+        flex-direction: column;
+        text-align: center;
     }
     
     .aboutus-content, .aboutus-image {
@@ -376,26 +383,33 @@
     }
     
     .aboutus-content {
-        order: 2;
-        margin-top: 30px;
+        order: 1;
     }
     
     .aboutus-image {
-        order: 1;
+        order: 2;
+        max-width: 500px;
+        margin: 0 auto;
     }
     
     .aboutus-hero-banner {
         height: 450px;
+        margin-top: 0px;
     }
     
     .aboutus-hero-title {
-        font-size: 60px;
-        line-height: 80px;
+        font-size: 56px;
+        line-height: 70px;
     }
     
     .aboutus-hero-backdrop {
-        font-size: 120px;
-        line-height: 160px;
+        font-size: 100px;
+        line-height: 140px;
+        bottom: -15px;
+    }
+    
+    .aboutus-hero-content {
+        padding: 0 30px;
     }
 }
 
@@ -416,7 +430,7 @@
     
     .aboutus-hero-banner {
         height: 350px;
-        margin-top: 120px;
+        margin-top: 0px;
     }
     
     .aboutus-hero-title {
@@ -454,14 +468,66 @@
         width: 100%;
     }
     
+    .aboutus-hero-banner {
+        height: 350px;
+        
+    }
+    
     .aboutus-hero-title {
-        font-size: 36px;
-        line-height: 48px;
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 12px;
+    }
+    
+    .aboutus-hero-breadcrumb {
+        font-size: 12px;
     }
     
     .aboutus-hero-backdrop {
-        font-size: 60px;
-        line-height: 80px;
+        font-size: 50px;
+        line-height: 70px;
+        bottom: -8px;
+    }
+    
+    .aboutus-hero-content {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .aboutus-hero-banner {
+        height: 300px;
+        
+    }
+    
+    .aboutus-hero-title {
+        font-size: 28px;
+        line-height: 36px;
+        
+    }
+    
+    .aboutus-hero-backdrop {
+        font-size: 40px;
+        line-height: 60px;
+        bottom: -5px;
+    }
+    
+    .aboutus-hero-content {
+        padding: 0 15px;
+    }
+    
+    .aboutus-heading {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    
+    .aboutus-image {
+        height: 250px;
+    }
+    
+    .aboutus-section {
+        padding: 0 10px;
+        margin: 25px auto;
     }
 }
 
