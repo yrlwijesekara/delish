@@ -1,0 +1,517 @@
+/* Team Details Specific Styles */
+
+/* Team Hero Section - Similar to Team Page */
+.team-hero {
+    position: relative;
+    width: 100%;
+    height: 527px;
+    background: #383838;
+    background-image: url('./IMAGES/team-details/team-details-main.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.73);
+    z-index: 1;
+}
+
+.team-hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.team-hero h1 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 104px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 0 0 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.team-breadcrumb {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+.team-breadcrumb a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.team-breadcrumb a:hover {
+    color: #CB3A1A;
+}
+
+.hero-watermark {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 150px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.05);
+    z-index: 2;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Chef Details Section */
+.chef-details-section {
+    background: #F6F6F6;
+    padding: 100px 0;
+    position: relative;
+}
+
+.chef-details-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 48px;
+    align-items: center;
+}
+
+.chef-content {
+    max-width: 552px;
+}
+
+.chef-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 58px;
+    color: #111111;
+    margin: 0 0 8px 0;
+}
+
+.chef-position {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: #CB3A1A;
+    margin: 0 0 40px 0;
+}
+
+.chef-description {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #74787C;
+    margin: 0 0 40px 0;
+}
+
+.chef-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 40px;
+    border: 1px solid #E6E3E3;
+    background: white;
+}
+
+.chef-info-item {
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-right: 1px solid #E6E3E3;
+    border-bottom: 1px solid #E6E3E3;
+}
+
+.chef-info-item:nth-child(2n) {
+    border-right: none;
+}
+
+.chef-info-item:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+.chef-info-icon {
+    width: 50px;
+    height: 50px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chef-info-icon i {
+    font-size: 16px;
+    color: #CB3A1A;
+}
+
+.chef-info-text {
+    flex: 1;
+}
+
+.chef-info-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #74787C;
+    margin: 0 0 4px 0;
+}
+
+.chef-info-value {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #111111;
+    margin: 0;
+}
+
+.chef-contact-btn {
+    display: inline-block;
+    background: #CB3A1A;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 23px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.chef-contact-btn:hover {
+    background: #a02f16;
+    transform: translateY(-2px);
+}
+
+.chef-image {
+    width: 480px;
+    height: 542px;
+    object-fit: cover;
+    background: #D9D9D9;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation Applications */
+.team-hero-content h1 {
+    animation: fadeInDown 1s ease-out;
+}
+
+.team-breadcrumb {
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.hero-watermark {
+    animation: fadeIn 1.5s ease-out 0.5s both;
+}
+
+.chef-content {
+    animation: fadeInLeft 1s ease-out 0.3s both;
+}
+
+.chef-image-container {
+    animation: fadeInRight 1s ease-out 0.5s both;
+}
+
+.chef-name {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.chef-position {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.chef-description {
+    animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.chef-info-item {
+    animation: scaleIn 0.6s ease-out both;
+}
+
+.chef-info-item:nth-child(1) {
+    animation-delay: 1s;
+}
+
+.chef-info-item:nth-child(2) {
+    animation-delay: 1.1s;
+}
+
+.chef-info-item:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.chef-info-item:nth-child(4) {
+    animation-delay: 1.3s;
+}
+
+.chef-contact-btn {
+    animation: fadeInUp 0.8s ease-out 1.4s both;
+}
+
+.cta-banner-section {
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* Hover Animations */
+.chef-info-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chef-info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.chef-contact-btn {
+    transition: all 0.3s ease;
+}
+
+.chef-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(203, 58, 26, 0.3);
+}
+
+.chef-image {
+    transition: transform 0.3s ease;
+}
+
+.chef-image:hover {
+    transform: scale(1.02);
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1320px) {
+    .chef-details-container {
+        max-width: 1200px;
+        gap: 32px;
+    }
+    
+    .chef-image {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .team-hero {
+        height: 400px;
+    }
+    
+    .team-hero h1 {
+        font-size: 48px;
+        line-height: 60px;
+    }
+    
+    .hero-watermark {
+        font-size: 80px;
+        line-height: 100px;
+    }
+    
+    .chef-details-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .chef-content {
+        max-width: 100%;
+    }
+    
+    .chef-image {
+        justify-self: center;
+        max-width: 480px;
+        width: 100%;
+    }
+    
+    .chef-info-grid {
+        max-width: 600px;
+        margin: 0 auto 40px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-hero {
+        height: 350px;
+    }
+    
+    .team-hero h1 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+    
+    .hero-watermark {
+        font-size: 60px;
+        line-height: 80px;
+    }
+    
+    .chef-details-section {
+        padding: 60px 0;
+    }
+    
+    .chef-name {
+        font-size: 32px;
+        line-height: 46px;
+    }
+    
+    .chef-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chef-info-item {
+        border-right: none;
+        border-bottom: 1px solid #E6E3E3;
+    }
+    
+    .chef-info-item:last-child {
+        border-bottom: none;
+    }
+    
+    .chef-image {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    
+    .team-breadcrumb {
+        font-size: 12px;
+    }
+    
+    .hero-watermark {
+        font-size: 40px;
+        line-height: 60px;
+    }
+    
+    .chef-details-section {
+        padding: 40px 0;
+    }
+    
+    .chef-name {
+        font-size: 28px;
+        line-height: 40px;
+    }
+    
+    .chef-info-item {
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .chef-image {
+        height: 300px;
+    }
+}
