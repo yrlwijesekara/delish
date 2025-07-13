@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGallery();
     initializeCounters();
     initializeContactForm(); // Add contact form initialization
+    initializeReservationForm(); // Add reservation form initialization
 });
 
 // Navigation functionality
@@ -1148,6 +1149,314 @@ function closeContactSuccess() {
     }
 }
 
+// Reservation Form functionality
+function initializeReservationForm() {
+    // Create reservation form styles if not exists
+    if (!document.querySelector('#reservation-form-styles')) {
+        const styles = document.createElement('style');
+        styles.id = 'reservation-form-styles';
+        styles.textContent = `
+            .reservation-form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .reservation-form h2 {
+                margin-bottom: 20px;
+                color: #111;
+                text-align: center;
+                font-size: 28px;
+            }
+            
+            .form-group {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .form-group label {
+                margin-bottom: 8px;
+                font-weight: 600;
+                color: #111;
+                font-size: 16px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+                border: 2px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+                font-family: 'Jost', sans-serif;
+                transition: border-color 0.3s ease;
+            }
+            
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: #CB3A1A;
+            }
+            
+            .submit-reservation-btn {
+                background: #CB3A1A;
+                color: white;
+                border: none;
+                padding: 15px;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                text-transform: uppercase;
+                transition: all 0.3s ease;
+                margin-top: 10px;
+            }
+            
+            .submit-reservation-btn:hover {
+                background: #a02e15;
+                transform: translateY(-2px);
+            }
+        `;
+        document.head.appendChild(styles);
+    }
+}
+
+function showReservationForm() {
+    // Create form if it doesn't exist
+    let form = document.getElementById('reservation-form');
+    if (!form) {
+        form = document.createElement('div');
+        form.id = 'reservation-form';
+        form.className = 'reservation-form';
+        form.innerHTML = `
+            <h2>Reservation Form</h2>
+            <form onsubmit="handleReservationSubmit(event)">
+                <div class="form-group">
+                    <label for="reservation-name">Full Name *</label>
+                    <input type="text" id="reservation-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-email">Email *</label>
+                    <input type="email" id="reservation-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-phone">Phone Number *</label>
+                    <input type="tel" id="reservation-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-date">Date *</label>
+                    <input type="date" id="reservation-date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-time">Time *</label>
+                    <input type="time" id="reservation-time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-guests">Number of Guests *</label>
+                    <select id="reservation-guests" name="guests" required>
+                        <option value="">Select guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7">7+ Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-notes">Special Requests (Optional)</label>
+                    <textarea id="reservation-notes" name="notes" rows="4" placeholder="Any special requests or dietary requirements..."></textarea>
+                </div>
+                <button type="submit" class="submit-reservation-btn">Make Reservation</button>
+            </form>
+        `;
+        document.body.appendChild(form);
+    }
+    
+    // Set minimum date to today
+    const dateInput = document.getElementById('reservation-date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+    
+    // Show form
+    form.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Close form on outside click
+    form.addEventListener('click', function(e) {
+        if (e.target === form) {
+            closeReservationForm();
+        }
+    });
+    
+    // Close form on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && form.style.display === 'block') {
+            closeReservationForm();
+        }
+    });
+}
+
+function closeReservationForm() {
+    const form = document.getElementById('reservation-form');
+    if (form) {
+        form.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function handleReservationSubmit(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(event.target);
+    const reservationData = Object.fromEntries(formData);
+    
+    // Validate form
+    if (!validateReservationForm(reservationData)) {
+        return;
+    }
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('.submit-reservation-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Processing...';
+    submitBtn.disabled = true;
+    
+    // Simulate API call
+    setTimeout(() => {
+        // Show success message
+        showReservationSuccess(reservationData);
+        
+        // Reset form
+        event.target.reset();
+        
+        // Close form
+        closeReservationForm();
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }, 2000);
+}
+
+function validateReservationForm(data) {
+    const requiredFields = ['name', 'email', 'phone', 'guests', 'date', 'time'];
+    
+    for (const field of requiredFields) {
+        if (!data[field] || data[field].trim() === '') {
+            alert(`Please fill in the ${field.charAt(0).toUpperCase() + field.slice(1)} field.`);
+            return false;
+        }
+    }
+    
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+    
+    // Validate date (not in the past)
+    const selectedDate = new Date(data.date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    if (selectedDate < today) {
+        alert('Please select a future date.');
+        return false;
+    }
+    
+    return true;
+}
+
+function showReservationSuccess(reservationData) {
+    // Create success message
+    const successMessage = document.createElement('div');
+    successMessage.className = 'reservation-success';
+    successMessage.innerHTML = `
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h3>Reservation Confirmed!</h3>
+            <p>Thank you, ${reservationData.name}! Your reservation for ${reservationData.guests} guest(s) on ${reservationData.date} at ${reservationData.time} has been received.</p>
+            <p>We'll send a confirmation email to ${reservationData.email} shortly.</p>
+            <button onclick="closeReservationSuccess()" class="success-close-btn">Close</button>
+        </div>
+    `;
+    
+    // Add success message styles
+    const styles = document.createElement('style');
+    styles.textContent = `
+        .reservation-success {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2001;
+        }
+        
+        .success-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        
+        .success-content h3 {
+            color: #111;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .success-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .success-close-btn {
+            background: #CB3A1A;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .success-close-btn:hover {
+            background: #a02e15;
+        }
+    `;
+    
+    document.head.appendChild(styles);
+    document.body.appendChild(successMessage);
+}
+
+function closeReservationSuccess() {
+    const successMessage = document.querySelector('.reservation-success');
+    if (successMessage) {
+        successMessage.remove();
+    }
+}
+
 // Additional utility functions for smooth animations
 function fadeIn(element, duration = 300) {
     element.style.opacity = '0';
@@ -1407,6 +1716,129 @@ function showContactFormMessage(message, type) {
 }
 
 function resetSubmitButton(button, originalText) {
+    button.innerHTML = originalText;
+    button.disabled = false;
+}
+
+// Reservation Form Functionality
+function initializeReservationForm() {
+    const reservationForm = document.getElementById('reservationForm');
+    
+    if (!reservationForm) return;
+    
+    // Set minimum date to today
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+    
+    reservationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleReservationSubmit(this);
+    });
+}
+
+function handleReservationSubmit(form) {
+    const submitBtn = form.querySelector('.reservation-page-submit-btn');
+    const originalText = submitBtn.innerHTML;
+    
+    // Show loading state
+    submitBtn.innerHTML = 'Processing...';
+    submitBtn.disabled = true;
+    
+    // Get form data
+    const formData = new FormData(form);
+    const reservationData = {
+        guests: formData.get('guests'),
+        date: formData.get('date'),
+        time: formData.get('time'),
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        message: formData.get('message')
+    };
+    
+    // Simulate API call
+    setTimeout(() => {
+        try {
+            // Here you would normally send the data to your server
+            console.log('Reservation submitted:', reservationData);
+            
+            // Show success message
+            showReservationMessage('success', 'Reservation submitted successfully! We will contact you soon.');
+            form.reset();
+            
+            // Reset date minimum
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+            
+        } catch (error) {
+            console.error('Reservation submission error:', error);
+            showReservationMessage('error', 'Failed to submit reservation. Please try again.');
+        } finally {
+            resetReservationButton(submitBtn, originalText);
+        }
+    }, 2000);
+}
+
+function showReservationMessage(type, message) {
+    // Remove any existing message
+    const existingMessage = document.querySelector('.reservation-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Create new message element
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `reservation-message ${type}`;
+    messageDiv.innerHTML = `
+        <div class="reservation-message-content">
+            <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Add styles
+    messageDiv.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: ${type === 'success' ? '#28a745' : '#dc3545'};
+        color: white;
+        padding: 20px 30px;
+        border-radius: 8px;
+        z-index: 9999;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        font-family: 'Kumbh Sans', sans-serif;
+        font-size: 16px;
+        max-width: 400px;
+        text-align: center;
+    `;
+    
+    messageDiv.querySelector('.reservation-message-content').style.cssText = `
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+    `;
+    
+    // Add to body
+    document.body.appendChild(messageDiv);
+    
+    // Auto-remove message after 4 seconds
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.remove();
+        }
+    }, 4000);
+}
+
+function resetReservationButton(button, originalText) {
     button.innerHTML = originalText;
     button.disabled = false;
 }

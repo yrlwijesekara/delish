@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delish Restaurant - Our Team</title>
+    <title>Delish Restaurant - Reservation</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./aboutus.css">
-    <link rel="stylesheet" href="./team.css">
     <link rel="stylesheet" href="./footer-styles.css">
-    <link rel="stylesheet" href="./team-details.css">
+    <link rel="stylesheet" href="./reservation.css">
+    <link rel="stylesheet" href="./aboutus.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +16,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Kumbh+Sans:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="footer-styles.css">
 </head>
 
 <body>
@@ -162,7 +160,133 @@
         </div>
     </div>
 
-       <!-- CTA Banner -->
+    <!-- Hero Breadcrumb Section -->
+    <section class="reservation-page-hero">
+        <div class="reservation-page-watermark">Reservation</div>
+        <div class="reservation-page-hero-content">
+            <h1>Book A Table</h1>
+            <p class="reservation-page-breadcrumb">Home / Book A Table</p>
+        </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="reservation-page-form-section">
+        <div class="reservation-page-form-bg"></div>
+        <div class="reservation-page-form-overlay"></div>
+        <div class="reservation-page-form-container">
+            <form class="reservation-page-form" id="reservationForm">
+                <!-- Number of Guests -->
+                <div class="reservation-page-form-group">
+                    <label for="guests">Number of Guest *</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Person</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6 People</option>
+                        <option value="7">7 People</option>
+                        <option value="8">8 People</option>
+                    </select>
+                </div>
+
+                <!-- Select Date -->
+                <div class="reservation-page-form-group">
+                    <label for="date">Select Date*</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <!-- Select Time -->
+                <div class="reservation-page-form-group">
+                    <label for="time">Select Time*</label>
+                    <select id="time" name="time" required>
+                        <option value="">Time</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="13:30">1:30 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="14:30">2:30 PM</option>
+                        <option value="19:00">7:00 PM</option>
+                        <option value="19:30">7:30 PM</option>
+                        <option value="20:00">8:00 PM</option>
+                        <option value="20:30">8:30 PM</option>
+                        <option value="21:00">9:00 PM</option>
+                        <option value="21:30">9:30 PM</option>
+                        <option value="22:00">10:00 PM</option>
+                    </select>
+                </div>
+
+                <!-- Your Name -->
+                <div class="reservation-page-form-group">
+                    <label for="name">Your Name*</label>
+                    <input type="text" id="name" name="name" placeholder="Delish" required>
+                </div>
+
+                <!-- Email Address -->
+                <div class="reservation-page-form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="delish@gmail.com" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="reservation-page-form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="123 456 789" required>
+                </div>
+
+                <!-- Special Message -->
+                <div class="reservation-page-form-group full-width">
+                    <label for="message">Type Your Special Message*</label>
+                    <textarea id="message" name="message" placeholder="Tell us more about your special message" required></textarea>
+                </div>
+            </form>
+
+            <!-- Submit Button -->
+            <div class="reservation-page-form-submit-btn">
+                <button type="submit" form="reservationForm" class="reservation-page-submit-btn">
+                    Book A Table
+                    <div class="reservation-page-btn-arrow-line"></div>
+                    <div class="reservation-page-btn-arrow-icon"></div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening Hours Section -->
+    <section class="reservation-page-opening-hours-section">
+        <div class="reservation-page-opening-hours-container">
+            <!-- Image Section -->
+            <div class="reservation-page-opening-hours-image">
+                <div class="reservation-page-main-image"></div>
+                <div class="reservation-page-overlay-image"></div>
+            </div>
+
+            <!-- Info Cards -->
+            <div class="reservation-page-opening-hours-info">
+                <!-- Opening Hours Card -->
+                <div class="reservation-page-info-card">
+                    <h3>Opening Hours</h3>
+                    <p>Lunch: 12Pm – 3Pm<br>
+                       Diner: 7Pm – 2Am<br>
+                       (Last Order At 11:30Pm)</p>
+                </div>
+
+                <!-- Visit Hour Restaurant Card -->
+                <div class="reservation-page-info-card">
+                    <h3>Visit Hour Restaurant</h3>
+                    <p>Eight avenue 487, NY<br>
+                       T. +12 344 0567899<br>
+                       M. fidalgo@example.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
     <section class="cta-banner-section">
         <div class="cta-banner-content">
             <p class="cta-banner-subheading">Book A Table For Your and Family Members</p>
