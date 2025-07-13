@@ -239,17 +239,7 @@
     border-radius: 8px;
 }
 
-.reservation-page-overlay-image {
-    position: absolute;
-    bottom: 50px;
-    right: -30px;
-    width: 243px;
-    height: 292px;
-    background: url('./IMAGES/food.png') center/cover;
-    border: 10px solid #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
+
 
 .reservation-page-opening-hours-info {
     display: flex;
@@ -332,15 +322,7 @@
         order: 1;
     }
     
-    .reservation-page-overlay-image {
-        position: relative;
-        right: 0;
-        bottom: 0;
-        margin-top: 20px;
-        width: 100%;
-        max-width: 300px;
-        height: 200px;
-    }
+  
 }
 
 @media (max-width: 768px) {
