@@ -1,4 +1,7 @@
 /* Reservation Page Styles */
+.reservation-hero {
+    background-image: url('./IMAGES/reservation/reservation-main.png') !important;
+}
 
 /* Hero Breadcrumb Section - Contact Style */
 .reservation-hero {

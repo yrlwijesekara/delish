@@ -1,5 +1,10 @@
 /* About Us Page Styles */
 
+/* About Us Hero Section Override */
+.reservation-hero {
+    background-image: url('./IMAGES/aboutus/aboutus-main.png') !important;
+}
+
 /* Reset and Base Styles for About Section */
 * {
     margin: 0;

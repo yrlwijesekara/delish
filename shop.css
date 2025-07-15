@@ -1,3 +1,6 @@
+.reservation-hero {
+    background-image: url('./IMAGES/shop/shop-main.png') !important;
+}
 /* Shop Section Styles */
 .shop-section {
     padding: 80px 0;
