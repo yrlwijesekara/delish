@@ -343,8 +343,147 @@
 
     <script src="script.js"></script>
     <script>
+        // Product data
+        const productData = {
+            'beef-bourguignon': {
+                title: 'Beef Bourguignon',
+                price: '$15.00',
+                image: './IMAGES/shop/shop1.png',
+                rating: 5,
+                reviews: 8,
+                description: 'Classic French braised beef dish cooked slowly in red wine with vegetables and herbs. A rich and flavorful comfort food perfect for any occasion.',
+                sku: 'SKU:001',
+                categories: 'Main Course, French Cuisine',
+                tags: 'Beef, Wine, Traditional'
+            },
+            'spicy-tuna-tartare': {
+                title: 'Spicy Tuna Tartare',
+                price: '$18.00',
+                image: './IMAGES/shop/shop2.png',
+                rating: 5,
+                reviews: 12,
+                description: 'Fresh sashimi-grade tuna mixed with spicy mayo, avocado, and crispy wonton chips. A modern take on traditional tartare.',
+                sku: 'SKU:002',
+                categories: 'Appetizer, Japanese Fusion',
+                tags: 'Tuna, Spicy, Fresh'
+            },
+            'margherita-pizza': {
+                title: 'Margherita Pizza',
+                price: '$16.00',
+                image: './IMAGES/shop/shop3.png',
+                rating: 4,
+                reviews: 15,
+                description: 'Traditional Italian pizza with fresh tomato sauce, mozzarella cheese, and fresh basil leaves on a wood-fired thin crust.',
+                sku: 'SKU:003',
+                categories: 'Main Course, Italian',
+                tags: 'Pizza, Vegetarian, Classic'
+            },
+            'braised-short-ribs': {
+                title: 'Braised Short Ribs',
+                price: '$24.00',
+                image: './IMAGES/shop/shop4.png',
+                rating: 5,
+                reviews: 6,
+                description: 'Tender, fall-off-the-bone short ribs slow-cooked in red wine and beef stock with root vegetables and fresh herbs.',
+                sku: 'SKU:004',
+                categories: 'Main Course, American',
+                tags: 'Beef, Braised, Comfort Food'
+            },
+            'vegan-buddha-bowl': {
+                title: 'Vegan Buddha Bowl',
+                price: '$14.00',
+                image: './IMAGES/shop/shop5.png',
+                rating: 4,
+                reviews: 20,
+                description: 'Nutritious bowl with quinoa, roasted vegetables, chickpeas, avocado, and tahini dressing. Healthy and satisfying plant-based meal.',
+                sku: 'SKU:005',
+                categories: 'Main Course, Vegan',
+                tags: 'Vegan, Healthy, Bowl'
+            },
+            'classic-caesar-salad': {
+                title: 'Classic Caesar Salad',
+                price: '$12.00',
+                image: './IMAGES/shop/shop6.png',
+                rating: 4,
+                reviews: 18,
+                description: 'Fresh romaine lettuce with homemade Caesar dressing, parmesan cheese, and crispy croutons. A timeless favorite.',
+                sku: 'SKU:006',
+                categories: 'Salad, Appetizer',
+                tags: 'Salad, Classic, Vegetarian'
+            },
+            'chicken-alfredo-pasta': {
+                title: 'Chicken Alfredo Pasta',
+                price: '$17.00',
+                image: './IMAGES/shop/shop7.png',
+                rating: 5,
+                reviews: 14,
+                description: 'Creamy fettuccine alfredo with grilled chicken breast, parmesan cheese, and fresh herbs. Rich and indulgent comfort food.',
+                sku: 'SKU:007',
+                categories: 'Main Course, Italian',
+                tags: 'Pasta, Chicken, Creamy'
+            },
+            'roasted-vegetable-platter': {
+                title: 'Roasted Vegetable Platter',
+                price: '$13.00',
+                image: './IMAGES/shop/shop8.png',
+                rating: 4,
+                reviews: 9,
+                description: 'Seasonal vegetables roasted to perfection with olive oil, herbs, and balsamic glaze. Healthy and colorful vegetarian option.',
+                sku: 'SKU:008',
+                categories: 'Side Dish, Vegetarian',
+                tags: 'Vegetables, Healthy, Roasted'
+            },
+            'pulled-pork-sandwich': {
+                title: 'Pulled Pork Sandwich',
+                price: '$15.00',
+                image: './IMAGES/shop/shop9.png',
+                rating: 5,
+                reviews: 11,
+                description: 'Slow-cooked pulled pork with BBQ sauce on a brioche bun, served with coleslaw and pickles. American comfort food at its finest.',
+                sku: 'SKU:009',
+                categories: 'Main Course, American',
+                tags: 'Pork, BBQ, Sandwich'
+            },
+            'chocolate-lava-cake': {
+                title: 'Chocolate Lava Cake',
+                price: '$9.00',
+                image: './IMAGES/shop/shop10.png',
+                rating: 5,
+                reviews: 25,
+                description: 'Decadent chocolate cake with a molten chocolate center, served warm with vanilla ice cream and fresh berries.',
+                sku: 'SKU:010',
+                categories: 'Dessert, Sweet',
+                tags: 'Chocolate, Dessert, Warm'
+            },
+            'ahi-poke-bowl': {
+                title: 'Ahi Poke Bowl',
+                price: '$19.00',
+                image: './IMAGES/shop/shop11.png',
+                rating: 5,
+                reviews: 16,
+                description: 'Fresh sashimi-grade ahi tuna over sushi rice with avocado, cucumber, edamame, and spicy mayo. Hawaiian-inspired healthy bowl.',
+                sku: 'SKU:011',
+                categories: 'Main Course, Hawaiian',
+                tags: 'Tuna, Poke, Fresh'
+            },
+            'lobster-bisque': {
+                title: 'Lobster Bisque',
+                price: '$16.00',
+                image: './IMAGES/shop/shop12.png',
+                rating: 5,
+                reviews: 7,
+                description: 'Rich and creamy lobster bisque made with fresh lobster, cognac, and cream. An elegant appetizer for special occasions.',
+                sku: 'SKU:012',
+                categories: 'Soup, Appetizer',
+                tags: 'Lobster, Soup, Elegant'
+            }
+        };
+
         // Shop Details Page JavaScript
         document.addEventListener('DOMContentLoaded', function() {
+            // Load product data
+            loadProductData();
+
             // Tab functionality
             const tabButtons = document.querySelectorAll('.tab-button');
             const tabPanels = document.querySelectorAll('.tab-panel');
@@ -384,9 +523,46 @@
             const addToCartBtn = document.querySelector('.add-to-cart-btn');
             addToCartBtn.addEventListener('click', function() {
                 const quantity = quantityInput.value;
-                alert(`Added ${quantity} item(s) to cart!`);
+                const productTitle = document.querySelector('.product-title').textContent;
+                alert(`Added ${quantity} ${productTitle}(s) to cart!`);
             });
         });
+
+        function loadProductData() {
+            const selectedProduct = localStorage.getItem('selectedProduct');
+            
+            if (selectedProduct && productData[selectedProduct]) {
+                const product = productData[selectedProduct];
+                
+                // Update product title
+                document.querySelector('.product-title').textContent = product.title;
+                
+                // Update product price
+                document.querySelector('.product-price').textContent = product.price;
+                
+                // Update product image
+                const productImage = document.querySelector('.product-image');
+                productImage.style.backgroundImage = `url('${product.image}'), url('.jpg'), #F6F6F7`;
+                
+                // Update rating reviews
+                document.querySelector('.rating-review').textContent = `(${product.reviews} customer review${product.reviews !== 1 ? 's' : ''})`;
+                
+                // Update description
+                document.querySelector('.product-description p').textContent = product.description;
+                
+                // Update product meta
+                document.querySelector('.product-meta').textContent = `${product.sku} Categories: ${product.categories} Tags: ${product.tags}`;
+                
+                // Update description tab content
+                document.querySelector('#description p').textContent = product.description + ' This premium dish is carefully prepared using the finest ingredients and traditional cooking techniques to ensure an exceptional dining experience.';
+                
+                // Clear localStorage after use
+                localStorage.removeItem('selectedProduct');
+            } else {
+                // Default fallback if no product is selected
+                console.log('No product selected, showing default content');
+            }
+        }
     </script>
 </body>
 

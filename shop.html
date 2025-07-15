@@ -192,7 +192,7 @@
                         </div>
                         <h3 class="shop-item-title">Beef Bourguignon</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('beef-bourguignon')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -212,7 +212,7 @@
                         </div>
                         <h3 class="shop-item-title">Spicy Tuna Tartare</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('spicy-tuna-tartare')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -232,7 +232,7 @@
                         </div>
                         <h3 class="shop-item-title">Margherita Pizza</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('margherita-pizza')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -252,7 +252,7 @@
                         </div>
                         <h3 class="shop-item-title">Braised Short Ribs</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('braised-short-ribs')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -273,7 +273,7 @@
                         </div>
                         <h3 class="shop-item-title">Vegan Buddha Bowl</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('vegan-buddha-bowl')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -293,7 +293,7 @@
                         </div>
                         <h3 class="shop-item-title">Classic Caesar Salad</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('classic-caesar-salad')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -313,7 +313,7 @@
                         </div>
                         <h3 class="shop-item-title">Chicken Alfredo Pasta</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('chicken-alfredo-pasta')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -333,7 +333,7 @@
                         </div>
                         <h3 class="shop-item-title">Roasted Vegetable Platter</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('roasted-vegetable-platter')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -353,7 +353,7 @@
                         </div>
                         <h3 class="shop-item-title">Pulled Pork Sandwich</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('pulled-pork-sandwich')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -373,7 +373,7 @@
                         </div>
                         <h3 class="shop-item-title">Chocolate Lava Cake</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('chocolate-lava-cake')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -393,7 +393,7 @@
                         </div>
                         <h3 class="shop-item-title">Ahi Poke Bowl</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('ahi-poke-bowl')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -413,7 +413,7 @@
                         </div>
                         <h3 class="shop-item-title">Lobster Bisque</h3>
                         <div class="shop-item-price">$15.00</div>
-                        <button class="shop-item-btn">Add to Cart</button>
+                        <button class="shop-item-btn" onclick="redirectToShopDetails('lobster-bisque')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -511,6 +511,32 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Shop page specific functionality
+        function redirectToShopDetails(productId) {
+            // Store the product ID in localStorage for the details page
+            localStorage.setItem('selectedProduct', productId);
+            
+            // Redirect to shop details page
+            window.location.href = 'shopdetails.html';
+        }
+
+        // Optional: Add visual feedback when hovering over shop items
+        document.addEventListener('DOMContentLoaded', function() {
+            const shopItems = document.querySelectorAll('.shop-item');
+            
+            shopItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
