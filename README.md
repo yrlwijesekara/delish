@@ -182,7 +182,23 @@ body {
 ```
 
 ### Images
-Replace images in the `IMAGES/` directory with your own assets, maintaining the same file names and dimensions for best results.
+Home page
+<img width="1901" height="909" alt="image" src="https://github.com/user-attachments/assets/4dc0a90b-ea82-49bb-b0a8-41d2dc99957c" />
+<img width="1898" height="909" alt="image" src="https://github.com/user-attachments/assets/26f8fdf3-f095-401a-a9d8-e837a072727e" />
+About Us
+<img width="1899" height="910" alt="image" src="https://github.com/user-attachments/assets/cd0ae67c-8dc6-443f-8c07-31a637c80093" />
+Team Details
+<img width="1904" height="902" alt="image" src="https://github.com/user-attachments/assets/40f2b2d7-42bb-4951-bf09-c526938c5cc0" />
+Shop
+<img width="1904" height="907" alt="image" src="https://github.com/user-attachments/assets/6684b762-9f2b-4b12-bba7-1d8f95aaeda4" />
+Book a table
+<img width="1900" height="910" alt="image" src="https://github.com/user-attachments/assets/f7dd81a7-27b3-4fc0-b5de-c69e8fd45dde" />
+
+
+
+
+
+
 
 ## 🚀 Deployment
 
@@ -191,12 +207,6 @@ Replace images in the `IMAGES/` directory with your own assets, maintaining the 
 2. Go to Settings > Pages
 3. Select source branch (usually `main`)
 4. Your site will be available at `https://yourusername.github.io/delish`
-
-### Netlify
-1. Connect your GitHub repository to Netlify
-2. Set build command: (leave empty for static sites)
-3. Set publish directory: `./`
-4. Deploy automatically on push
 
 ### Other Hosting
 Upload all files to your web hosting provider's public directory (usually `public_html` or `www`).
